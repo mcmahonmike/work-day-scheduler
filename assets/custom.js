@@ -1,8 +1,13 @@
-var currentDay = document.getElementById('#currentDay')
+
+var rightNow = moment().format("MMMM Do, YYYY - hh:mm:ss a");
 
 
-function Time (){
-    currentDay = moment().format('MMMM Do YYYY, h:mm:ss a');
-    currentDay.append
+
+var Time =function (){
+    $("#currentDay").append(rightNow)
+
+    
 }
 Time()
+
+
