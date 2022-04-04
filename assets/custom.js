@@ -1,9 +1,15 @@
 
-var rightNow = moment().format("MMMM Do, YYYY - hh:mm:ss a");
-$("#currentDay").text(rightNow)
+var currentDate = moment().format("MMMM Do, YYYY - hh:mm:ss a");
+var currentTime = moment().format('H')
+var hour = $(".description")
 
+var Time = function(){
+$("#currentDay").text(currentDate)
+}
 
-$('.row col-12').on('click', "div", function(){
+Time()
 
-});
+$(hour).addClass('past')
+
+ 
 
