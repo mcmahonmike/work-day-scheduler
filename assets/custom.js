@@ -1,6 +1,7 @@
 
 var currentDate = moment().format("MMMM Do, YYYY - hh:mm:ss a");
 var hour = $(".description")
+var work = {}
 
 
 
@@ -29,12 +30,20 @@ var Time = function(){
 
 var saveInput = function(){
     $(".time-block").on("click", "button", function(){
-        var textInput = $("textarea")
+        var textInput = $(this).siblings("description")
         .val();
+        localStorage.setItem("work", JSON.stringify(textInput))
         console.log(textInput)
     })
+    saveWork()
 }
-saveInput()
+
+var saveWork = function() {
+    localStorage.setItem("work", JSON.stringify());
+  };
+
+
+  saveInput()
 
 Time()
 
