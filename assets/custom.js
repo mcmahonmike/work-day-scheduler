@@ -5,7 +5,6 @@ var hour = $(".description")
 
 
 
-
 var Time = function(){
     // creating variable for the current hour
     var currentTime = moment().hour()
@@ -22,8 +21,20 @@ var Time = function(){
     }else{
         $(this).addClass("past")
     }
+    // display current date and time
+    $("#currentDay").text(currentDate);
+
 })
 }
+
+var saveInput = function(){
+    $(".time-block").on("click", "button", function(){
+        var textInput = $("textarea")
+        .val();
+        console.log(textInput)
+    })
+}
+saveInput()
 
 Time()
 
