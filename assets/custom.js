@@ -26,21 +26,37 @@ var Time = function(){
 
 })
 }
-
+// Function to store saved input to localStorage
 var saveInput = function(){
     $(".saveBtn").on("click", function(){
+        var textAreaValuesArray = JSON.parse( localStorage.getItem("time-blocks")) || []
         var textInput = $(this)
         .siblings(".description")
         .val();
         var hour = $(this)
         .parent()
         .attr("id")
-        localStorage.setItem(textInput, hour)
+        var localStorageObject = {
+            timeId: hour,
+            textValue: textInput,
+        }
+        textAreaValuesArray.push(localStorageObject)
+        localStorage.setItem("time-blocks", JSON.stringify( textAreaValuesArray))
     })
+    
+}
+
+var loadInput = function(){
+var savedItemsArray = JSON.parse( localStorage.getItem("time-blocks"))
+var element = savedItemsArray[0]
+var Id  = element.timeId
+var text = element.textValue
+ $("#" + Id ).find(".description").text(text)
+ console.log($("#hour9").find(".description"))
 }
 
 
-
+loadInput()
 saveInput()
 Time()
 
