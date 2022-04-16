@@ -23,8 +23,9 @@ var Time = function(){
     }
     // display current date and time
     $("#currentDay").text(currentDate);
-
+    
 })
+     loadInput()
 }
 // Function to store saved input to localStorage
 var saveInput = function(){
@@ -47,14 +48,18 @@ var saveInput = function(){
 }
 
 var loadInput = function(){
-var savedItemsArray = JSON.parse( localStorage.getItem("time-blocks"))
-var element = savedItemsArray[0]
-var Id  = element.timeId
-var text = element.textValue
- $("#" + Id ).find(".description").text(text)
- console.log($("#hour9").find(".description"))
-}
+    var savedItemsArray = JSON.parse( localStorage.getItem("time-blocks")) || []
+    for(var i = 0; i < savedItemsArray.length; i++)
+  if (savedItemsArray === ""){
+      return
+  } else{
 
+     var element = savedItemsArray[i]
+     var Id  = element.timeId
+     var text = element.textValue
+     $("#" + Id ).find(".description").text(text)
+    }
+}
 
 loadInput()
 saveInput()
